@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#213c36">
+  <meta name="description" content="勿忘我，一场关于记忆的农庄冒险。观看游戏预告，在浏览器里走进阿团的农庄。">
+  <meta property="og:title" content="勿忘我 · 一场关于记忆的农庄冒险">
+  <meta property="og:description" content="我的农庄有点不对劲。观看游戏预告，或走进农庄亲自看一看。">
+  <title>勿忘我 · 一场关于记忆的农庄冒险</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./showcase.css">
+</head>
+<body>
+  <header class="masthead">
+    <div class="nav-wrap">
+      <a class="wordmark" href="#trailer" aria-label="勿忘我首页">
+        <span class="flower" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        勿忘我
+      </a>
+      <nav aria-label="页面导航">
+        <a class="nav-link" href="#trailer">游戏预告</a>
+        <a class="nav-link" href="#album">农庄相册</a>
+        <a class="launch" href="./play/">开始试玩 <span aria-hidden="true">→</span></a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section id="trailer" class="cinema" aria-labelledby="game-name">
+      <h1 id="game-name" class="sr-only">勿忘我</h1>
+      <div class="screen">
+        <video id="film" controls playsinline preload="none" poster="./media/poster.webp" aria-label="勿忘我游戏预告片">
+          <source src="./media/trailer.mp4" type="video/mp4">
+          <a href="./media/trailer.mp4">打开预告片</a>
+        </video>
+        <button class="watch" type="button" hidden aria-label="播放游戏预告">
+          <span class="play-shape" aria-hidden="true"></span>
+          <span>播放预告</span>
+        </button>
+      </div>
+      <div class="lede">
+        <div class="intro">
+          <h2>我的农庄有点不对劲。</h2>
+          <p>树上结着棒棒糖，鱼在池塘上空打转。跟着阿棠出门看看吧。</p>
+        </div>
+        <div class="enter">
+          <a class="launch large" href="./play/">走进农庄 <span aria-hidden="true">→</span></a>
+          <small>建议使用电脑键盘与鼠标</small>
+        </div>
+      </div>
+    </section>
+    <section id="album" class="album" aria-labelledby="album-name">
+      <div class="album-inner">
+        <div class="section-heading"><h2 id="album-name">农庄相册</h2><span aria-hidden="true"></span></div>
+        <div class="plates">
+          <figure>
+            <img src="./media/tree.webp" loading="lazy" alt="阿团和阿棠站在苹果屋旁的棒棒糖树下" width="900" height="506">
+            <figcaption>糖果树下</figcaption>
+          </figure>
+          <figure>
+            <img src="./media/pond.webp" loading="lazy" alt="草帽守着木栈桥，几条鱼浮在水面上方" width="900" height="506">
+            <figcaption>草帽的池塘</figcaption>
+          </figure>
+          <figure>
+            <img src="./media/memory.webp" loading="lazy" alt="一段往日回忆里，阿团和阿棠在树下说话" width="900" height="506">
+            <figcaption>拾忆瓶中的初遇</figcaption>
+          </figure>
+        </div>
+        <p class="afterword">采花、钓鱼、和朋友聊几句……与农庄的点滴交互，都会凝成记忆点。装满拾忆瓶，就能探寻一段新的往事。</p>
+      </div>
+    </section>
+  </main>
+  <script>
+    const film = document.querySelector('#film');
+    const watch = document.querySelector('.watch');
+    watch.hidden = false;
+    film.controls = false;
+    watch.addEventListener('click', () => {
+      film.controls = true;
+      film.play().catch(() => { film.controls = true; });
+    });
+    film.addEventListener('play', () => {
+      watch.hidden = true;
+      film.focus({ preventScroll: true });
+    });
+    film.addEventListener('ended', () => {
+      film.controls = false;
+      watch.hidden = false;
+    });
+  </script>
+</body>
+</html>

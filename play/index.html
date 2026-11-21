@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN" data-memory-endpoint="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="./game.css?v=dfc1bc43ea67">
+<title>勿忘我</title>
+<main id="world" aria-label="可自由探索的三维农庄"></main>
+<header id="game-hud"><div class="hud-actions"><button id="menu-button" hidden>菜单</button></div></header>
+<dialog id="game-menu" aria-labelledby="menu-name">
+  <section id="menu-home">
+    <div class="title-leaf">
+      <div class="bookplate"><i class="bloom" aria-hidden="true"></i><h1 id="menu-name">勿忘我</h1><button id="sound-toggle" type="button" aria-label="游戏声音"></button><span class="title-rule" aria-hidden="true"></span></div>
+      <nav class="title-actions" id="main-actions" aria-label="游戏菜单">
+        <button id="new-game"><span>新游戏</span></button><button id="continue"><span>继续游戏</span></button><button id="open-practice"><span>小游戏试玩</span></button><button id="open-guide"><span>图鉴</span></button><button id="open-memories"><span>回忆目录</span></button>
+      </nav>
+      <nav class="title-actions" id="practice-actions" aria-label="选择试玩" hidden></nav>
+    </div>
+    <div class="meadow-print" aria-hidden="true"><div class="meadow-art"></div><div class="pollen"><i></i><i></i><i></i><i></i><i></i></div></div>
+  </section>
+  <section id="field-guide" hidden>
+    <header><h1 id="guide-name">图鉴</h1><button id="back-to-menu">返回菜单</button></header>
+    <nav aria-label="图鉴分类"></nav>
+    <div id="album-grid" aria-label="图鉴条目"></div>
+    <footer id="album-pages"><button id="page-prev" aria-label="上一页">‹</button><span aria-live="polite"></span><button id="page-next" aria-label="下一页">›</button></footer>
+    <div id="album-tip" role="tooltip" hidden></div>
+  </section>
+</dialog>
+<dialog id="memory-window" aria-labelledby="memory-heading"><button class="book-close">返回</button><h2 id="memory-heading"></h2><p></p><nav></nav></dialog>
+<section id="recollection" hidden><button class="rec-leave">离开回忆</button><div class="rec-line" role="status" hidden></div><footer><p></p><button class="rec-action" hidden></button></footer></section>
+<div id="cloud-curtain" hidden aria-hidden="true"><i></i><i></i></div>
+<div id="error" role="alert"></div>
+<script type="module" src="./game.js?v=a16be8d02291"></script>
+</html>
