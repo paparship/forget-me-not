@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#213c36"><title>游戏设定 · 勿忘我</title><link rel="icon" href="data:,"><style>:root {
+  color-scheme: light;
+  --pine: #213c36;
+  --ink: #293e34;
+  --paper: #f8f3e3;
+  --gold: #efcd8c;
+  --serif: "Songti SC", "STSong", "Noto Serif CJK SC", SimSun, Georgia, serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--serif); }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; }
+:is(a, button):focus-visible { outline: 3px solid #d7a73c; outline-offset: 4px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.masthead { background: var(--pine); color: #f7efd8; }
+.nav-wrap, .screen, .lede, .album-inner { width: min(1120px, calc(100% - 80px)); margin-inline: auto; }
+.nav-wrap { display: flex; align-items: center; justify-content: space-between; min-height: 80px; gap: 20px; }
+.wordmark { display: inline-flex; align-items: center; gap: 13px; font-size: 23px; font-weight: 600; letter-spacing: .17em; }
+.flower { display: inline-block; position: relative; width: 28px; height: 28px; }
+.flower i { position: absolute; left: 9px; top: 2px; width: 10px; height: 14px; background: #adcbd2; border-radius: 55% 52% 44% 45%; transform-origin: 5px 12px; }
+.flower i:nth-child(2) { transform: rotate(72deg); background: #90b5c1; }
+.flower i:nth-child(3) { transform: rotate(144deg); }
+.flower i:nth-child(4) { transform: rotate(216deg); background: #90b5c1; }
+.flower i:nth-child(5) { transform: rotate(288deg); }
+.flower::after { content: ""; position: absolute; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); left: 10.5px; top: 10.5px; }
+nav { display: flex; align-items: center; gap: clamp(15px, 3.2vw, 42px); }
+.nav-link { font-size: 15px; letter-spacing: .08em; padding-block: 10px; text-underline-offset: 6px; }
+.nav-link:hover { text-decoration: underline; }
+.nav-link[aria-current="page"] { color: var(--gold); text-decoration: underline; }
+.launch { display: inline-flex; align-items: center; justify-content: space-between; gap: 21px; background: #eed396; color: #233d33; padding: 11px 18px; border: 1px solid #efdaaa; border-radius: 3px; font-family: inherit; font-weight: 700; font-size: 15px; letter-spacing: .08em; transition: background .2s; }
+.launch span { display: inline-block; font-family: Arial, sans-serif; font-weight: 400; transition: transform .2s; }
+.launch:hover { background: #ffe4ac; }
+.launch:hover span { transform: translateX(3px); }
+.cinema { position: relative; background: linear-gradient(var(--pine) 0 56%, var(--paper) 56% 100%); padding-top: 8px; }
+.screen { position: relative; overflow: hidden; background: #152c28; box-shadow: 0 14px 34px #2331252a; }
+.screen::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px #e7d7a945; pointer-events: none; }
+video { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; display: block; }
+.watch { position: absolute; top: 51%; left: 53%; transform: translate(-50%, -50%); display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 46px; padding: 10px 18px; background: #283f36eb; color: #fff2d4; border: 1px solid #e8d8a399; border-radius: 30px; letter-spacing: .12em; font-size: 15px; cursor: pointer; box-shadow: 0 3px 16px #192f273b; transition: background .2s ease, box-shadow .2s ease; }
+.watch:hover { background: #1d342e; box-shadow: 0 4px 20px #1728205e; }
+.watch[hidden] { display: none; }
+.play-shape { border-left: 10px solid #f4db9f; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+.lede { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding-block: clamp(30px, 4vw, 55px); }
+.intro h2 { margin: 0; font-size: clamp(26px, 3.2vw, 40px); letter-spacing: .035em; font-weight: 600; }
+.intro p, .afterword { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; font-size: 15px; line-height: 1.85; color: #5e6556; }
+.intro p { margin: 11px 0 0; }
+.enter { display: flex; flex-direction: column; align-items: center; gap: 9px; flex-shrink: 0; }
+.large { background: var(--pine); border-color: var(--pine); color: #f9e9bf; font-size: 18px; padding: 13px 22px; gap: 30px; }
+.large:hover { background: #345447; }
+.enter small { color: #626a58; font-size: 12px; }
+.album { border-top: 1px solid #c6c4a5; padding-block: clamp(37px, 5vw, 69px); background: #f0ead7; }
+.section-heading { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; }
+.section-heading h2 { margin: 0; font-size: clamp(24px, 3vw, 34px); letter-spacing: .12em; font-weight: 600; }
+.section-heading span { flex: 1; height: 1px; background: #c7c6a9; }
+.plates { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2.2vw, 28px); }
+figure { margin: 0; padding: 7px 7px 0; background: #fbf7e9; border: 1px solid #d6cfb8; box-shadow: 0 4px 8px #4943260c; }
+figure img { width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; display: block; }
+figcaption { padding: 13px 5px 14px; text-align: center; letter-spacing: .12em; font-size: 16px; }
+.afterword { max-width: 55em; margin: 26px 0 0; }
+@media (max-width: 720px) {
+  .nav-wrap, .lede, .album-inner { width: calc(100% - 36px); }
+  .nav-wrap { min-height: 65px; }
+  .screen { width: 100%; border-radius: 0; }
+  .cinema { padding-top: 0; background: var(--paper); }
+  .watch { font-size: 13px; gap: 7px; min-height: 40px; padding: 8px 13px; }
+  .lede { gap: 18px; align-items: flex-start; }
+  .intro p { font-size: 14px; }
+  .plates { gap: 8px; }
+  figure { padding: 4px 4px 0; }
+  figcaption { font-size: 14px; letter-spacing: .03em; }
+}
+@media (max-width: 540px) {
+  .wordmark { gap: 8px; font-size: 20px; }
+  nav { gap: 15px; }
+  .nav-link { font-size: 13px; letter-spacing: 0; }
+  .nav-link:first-child { display: none; }
+  .launch { padding: 9px 12px; gap: 12px; font-size: 14px; }
+  .watch { left: 58%; }
+  .lede { display: block; }
+  .enter { flex-direction: row; gap: 13px; margin-top: 19px; }
+  .large { font-size: 16px; padding: 10px 16px; }
+  .plates { grid-template-columns: 1fr; gap: 18px; }
+  figure { padding: 6px 6px 0; }
+  figcaption { font-size: 16px; }
+  .afterword { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0s !important; }
+}
+@media (max-width: 620px) {
+  .masthead .nav-wrap { flex-wrap: wrap; gap: 3px; padding-block: 10px; }
+  .masthead nav { flex-basis: 100%; justify-content: space-between; gap: 6px; }
+  .masthead .nav-link { display: inline-block; font-size: 14px; }
+  .masthead .launch { padding: 7px 11px; }
+}
+.wiki {--line:#d8d0b9;--muted:#5d685c;line-height:1.78;background:#faf6e9}
+.wiki .masthead {line-height:normal}
+.wiki .folio {max-width:1120px;width:calc(100% - 80px);margin:0 auto}
+.wiki .cover {display:grid;grid-template-columns:1fr 1.22fr;background:#eee7d1;border-bottom:1px solid var(--line)}
+.wiki .cover div {display:flex;flex-direction:column;justify-content:center;padding:32px clamp(20px,4vw,64px)}
+.wiki .cover h1 {font-size:clamp(32px,4vw,58px);font-weight:500;letter-spacing:.14em;margin:0;color:#253f34}
+.wiki .cover p {margin:9px 0 0;color:#425b50;letter-spacing:.04em}
+.wiki .cover img {height:clamp(180px,22vw,270px);width:100%;object-fit:cover;object-position:center 62%}
+.wiki .layout {display:grid;grid-template-columns:185px minmax(0,1fr);gap:clamp(28px,5vw,72px);padding:40px 0 80px;align-items:start}
+.wiki .contents {position:sticky;top:18px;border-top:2px solid #738475}
+.wiki .contents h2 {margin:12px 0;font-size:18px;letter-spacing:.12em}
+.wiki .contents nav {display:grid;gap:2px}
+.wiki .contents a {font-size:15px;padding:5px 10px;border-left:2px solid transparent;color:#42574a}
+.wiki .contents a:hover,.wiki .contents a[aria-current] {border-color:#99753b;background:#eee8d5;color:#263f32}
+.wiki article {min-width:0}
+.wiki article section {padding-bottom:36px;margin-bottom:32px;border-bottom:1px solid var(--line);scroll-margin-top:20px}
+.wiki article h2 {font-size:clamp(24px,3vw,32px);font-weight:600;line-height:1.4;margin:0 0 18px}
+.wiki article h3 {font-size:21px;margin:25px 0 8px}
+.wiki article h4 {font-size:17px;margin:15px 0 5px}
+.wiki article p,.wiki article li,.wiki article dd,.wiki article td {font:15px/1.9 "Microsoft YaHei","PingFang SC",sans-serif}
+.wiki article p {margin:.55em 0}.wiki article li+li {margin-top:.3em}
+.wiki article dd {margin-inline-start:0}
+.wiki article details {border:1px solid var(--line);border-radius:5px;background:#f4eedf;margin:9px 0;padding:0 15px}
+.wiki article details[open] {background:#fffaf0;padding-bottom:12px}
+.wiki article summary {padding:10px 0;cursor:pointer;font-weight:600;color:#345043;overflow-wrap:anywhere}
+.wiki article summary:hover {color:#77582b}
+.wiki article details[open]>summary {border-bottom:1px solid var(--line);margin-bottom:9px}
+.wiki article small {color:var(--muted);font:13px/1.6 "Microsoft YaHei",sans-serif}
+.wiki .entries {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));margin:10px 0;gap:12px 20px}
+.wiki .entries div {border-bottom:1px dotted var(--line);padding:5px 0 8px}
+.wiki .entries dt {font-size:18px;font-weight:600}
+.wiki .entries dd small {display:block}
+.wiki article table {border-collapse:collapse;width:100%;margin:10px 0}
+.wiki article :is(td,th) {text-align:left;vertical-align:top;border-bottom:1px solid var(--line);padding:8px;overflow-wrap:anywhere}
+.wiki article th {color:#385544;background:#eee8d6}
+.wiki article pre {white-space:pre-wrap;overflow-wrap:anywhere;background:#eae5d6;color:#344639;padding:12px 15px;border-left:3px solid #95a187;font:14px/1.65 Consolas,monospace}
+.wiki article .scroll {overflow-x:auto}
+.wiki article img {max-width:100%}
+.wiki .backtop {text-decoration:underline;text-underline-offset:4px}
+@media(max-width:800px){
+ .wiki .folio{width:calc(100% - 32px)}
+ .wiki .layout{display:block;padding-top:18px}
+ .wiki .contents{position:static;margin:0 0 28px}
+ .wiki .contents nav{display:flex;flex-wrap:wrap;gap:0 8px}
+ .wiki .contents a{padding:4px;font-size:14px}
+ .wiki .cover div{padding:18px}
+ .wiki .cover p{font-size:14px}
+ .wiki article :is(td,th){padding:5px;font-size:14px}
+}
+@media(max-width:520px){
+ .wiki .cover {grid-template-columns:1fr}
+ .wiki .cover img{height:145px}
+ .wiki article details{padding-inline:9px}
+}
+</style></head>
+<body class="wiki" id="top"><header class="masthead">
+<div class="nav-wrap">
+<a aria-label="勿忘我首页" class="wordmark" href="../index.html#trailer">
+<span aria-hidden="true" class="flower"><i></i><i></i><i></i><i></i><i></i></span>
+        勿忘我
+      </a>
+<nav aria-label="页面导航">
+<a class="nav-link" href="../index.html#trailer">游戏预告</a>
+<a class="nav-link" href="../index.html#album">农庄相册</a>
+<a aria-current="page" class="nav-link" href="./">游戏设定</a>
+<a class="launch" href="../play/">开始试玩 <span aria-hidden="true">→</span></a>
+</nav>
+</div>
+</header>
+<main class="folio"><header class="cover"><div><h1>游戏设定</h1><p>阿团从家门口出发。阿棠在树旁等他。</p></div>
+<img alt="阿团和阿棠站在苹果屋外的糖果树下" src="../media/tree.webp" width="900" height="506"></header>
+<div class="layout"><aside class="contents"><h2>目录</h2><nav aria-label="设定目录"><a href="#world">表层世界观</a><a href="#motion">人物与动画</a><a href="#play">场景与玩法</a><a href="#dialog">主线与对白</a><a href="#catalog">图鉴与题记</a><a href="#memories">拾忆瓶与回忆</a><a href="#dsl">剧情编排 DSL</a><a href="#real">现实世界观</a></nav></aside>
+<article><section aria-labelledby="world-title" id="world">
+<h2 id="world-title">农庄里的世界</h2>
+<p>阿团从一间苹果形的小屋门前出发。门边开着一丛丛蓝色的勿忘我，前面的树上挂着棒棒糖。阿棠已经在树旁等他了。</p>
+<p>农庄里的伙伴都是史莱姆。草帽守着池边的钓位，小羽在林间空地上自己顶球。对初来的人来说，鱼游在水面上方很稀奇；阿团到了池边，先注意到的是鱼长得漂亮。</p>
+<p>有些话，起初只能听清几个字。跟伙伴一起做过一件事，再去闲聊，有时就能听全那句话。屋前、田间、池边和树林也会随这趟散步渐渐变样。</p>
+</section><section class="motion-atlas" id="motion">
+<h2>角色动作</h2>
+<p>并排看同一个表情，最容易认出四个人的不同。高兴时眼角弯起来，疑惑时歪过脑袋，吃惊时身体后仰。走起路来，身体会随脚步轻轻弹起。</p><p>场上交谈时，伙伴会先转向彼此，再在说话者头顶显示对白。普通交谈结束后，NPC 空闲约两秒，才慢慢转回所在位置的默认朝向。</p>
+<button aria-pressed="false" id="motion-toggle" type="button">暂停动作</button>
+<article class="motion-row"><h3>阿团</h3><p>橘色，头顶一片嫩叶，围着浅蓝领巾。阿团从主屋门前出发，移动时朝着前进方向，停下时保持刚才的朝向。在树下他会蓄力起跳；给阿棠递糖时，先压低身子，再把糖抛出去。</p><div class="motion-cells"><figure><span aria-label="阿团待机" class="motion-sprite" role="img" style="background-image:url(wiki-media/traveler.webp);--sprite-row:0.00000000%;--sprite-rows:800%"></span><figcaption>待机</figcaption></figure><figure><span aria-label="阿团高兴" class="motion-sprite" role="img" style="background-image:url(wiki-media/traveler.webp);--sprite-row:14.28571429%;--sprite-rows:800%"></span><figcaption>高兴</figcaption></figure><figure><span aria-label="阿团疑惑" class="motion-sprite" role="img" style="background-image:url(wiki-media/traveler.webp);--sprite-row:28.57142857%;--sprite-rows:800%"></span><figcaption>疑惑</figcaption></figure><figure><span aria-label="阿团吃惊" class="motion-sprite" role="img" style="background-image:url(wiki-media/traveler.webp);--sprite-row:42.85714286%;--sprite-rows:800%"></span><figcaption>吃惊</figcaption></figure><figure><span aria-label="阿团说话" class="motion-sprite" role="img" style="background-image:url(wiki-media/traveler.webp);--sprite-row:57.14285714%;--sprite-rows:800%"></span><figcaption>说话</figcaption></figure><figure><span aria-label="阿团蹦步" class="motion-sprite" role="img" style="background-image:url(wiki-media/traveler.webp);--sprite-row:71.42857143%;--sprite-rows:800%"></span><figcaption>蹦步</figcaption></figure><figure><span aria-label="阿团起跳" class="motion-sprite" role="img" style="background-image:url(wiki-media/traveler.webp);--sprite-row:85.71428571%;--sprite-rows:800%"></span><figcaption>起跳</figcaption></figure><figure><span aria-label="阿团抛糖" class="motion-sprite" role="img" style="background-image:url(wiki-media/traveler.webp);--sprite-row:100.00000000%;--sprite-rows:800%"></span><figcaption>抛糖</figcaption></figure></div></article>
+<article class="motion-row"><h3>阿棠</h3><p>薄荷绿，奶油色头巾上别着浅蓝小花。平时在果树旁小路等人；带路时回望跟在后面的阿团，看球时站在球场右侧靠上的边线外，目光跟着场上两人。说糖够不着时，她会转向枝头试跳一下。阿团喊「接着！」，她迎上去接糖，落稳才开口。</p><div class="motion-cells"><figure><span aria-label="阿棠待机" class="motion-sprite" role="img" style="background-image:url(wiki-media/flower-clasp.webp);--sprite-row:0.00000000%;--sprite-rows:800%"></span><figcaption>待机</figcaption></figure><figure><span aria-label="阿棠高兴" class="motion-sprite" role="img" style="background-image:url(wiki-media/flower-clasp.webp);--sprite-row:14.28571429%;--sprite-rows:800%"></span><figcaption>高兴</figcaption></figure><figure><span aria-label="阿棠疑惑" class="motion-sprite" role="img" style="background-image:url(wiki-media/flower-clasp.webp);--sprite-row:28.57142857%;--sprite-rows:800%"></span><figcaption>疑惑</figcaption></figure><figure><span aria-label="阿棠吃惊" class="motion-sprite" role="img" style="background-image:url(wiki-media/flower-clasp.webp);--sprite-row:42.85714286%;--sprite-rows:800%"></span><figcaption>吃惊</figcaption></figure><figure><span aria-label="阿棠说话" class="motion-sprite" role="img" style="background-image:url(wiki-media/flower-clasp.webp);--sprite-row:57.14285714%;--sprite-rows:800%"></span><figcaption>说话</figcaption></figure><figure><span aria-label="阿棠蹦步" class="motion-sprite" role="img" style="background-image:url(wiki-media/flower-clasp.webp);--sprite-row:71.42857143%;--sprite-rows:800%"></span><figcaption>蹦步</figcaption></figure><figure><span aria-label="阿棠伸身试跳" class="motion-sprite" role="img" style="background-image:url(wiki-media/flower-clasp.webp);--sprite-row:85.71428571%;--sprite-rows:800%"></span><figcaption>伸身试跳</figcaption></figure><figure><span aria-label="阿棠接糖" class="motion-sprite" role="img" style="background-image:url(wiki-media/flower-clasp.webp);--sprite-row:100.00000000%;--sprite-rows:800%"></span><figcaption>接糖</figcaption></figure></div></article>
+<article class="motion-row"><h3>草帽</h3><p>蓝灰色，宽檐草帽缀着有两针浅线的补丁，侧边挂一只青绿小酒瓶。他守着栈桥上的钓位，闲下来时会俯身朝池里瞧。</p><div class="motion-cells"><figure><span aria-label="草帽待机" class="motion-sprite" role="img" style="background-image:url(wiki-media/angler.webp);--sprite-row:0.00000000%;--sprite-rows:700%"></span><figcaption>待机</figcaption></figure><figure><span aria-label="草帽高兴" class="motion-sprite" role="img" style="background-image:url(wiki-media/angler.webp);--sprite-row:16.66666667%;--sprite-rows:700%"></span><figcaption>高兴</figcaption></figure><figure><span aria-label="草帽疑惑" class="motion-sprite" role="img" style="background-image:url(wiki-media/angler.webp);--sprite-row:33.33333333%;--sprite-rows:700%"></span><figcaption>疑惑</figcaption></figure><figure><span aria-label="草帽吃惊" class="motion-sprite" role="img" style="background-image:url(wiki-media/angler.webp);--sprite-row:50.00000000%;--sprite-rows:700%"></span><figcaption>吃惊</figcaption></figure><figure><span aria-label="草帽说话" class="motion-sprite" role="img" style="background-image:url(wiki-media/angler.webp);--sprite-row:66.66666667%;--sprite-rows:700%"></span><figcaption>说话</figcaption></figure><figure><span aria-label="草帽蹦步" class="motion-sprite" role="img" style="background-image:url(wiki-media/angler.webp);--sprite-row:83.33333333%;--sprite-rows:700%"></span><figcaption>蹦步</figcaption></figure><figure><span aria-label="草帽低头看水" class="motion-sprite" role="img" style="background-image:url(wiki-media/angler.webp);--sprite-row:100.00000000%;--sprite-rows:700%"></span><figcaption>低头看水</figcaption></figure></div></article>
+<article class="motion-row"><h3>小羽</h3><p>粉紫色，个子小，脑袋旁别着一长一短两根羽毛。常驻林间球场远端，平时自己顶球追球；阿棠到了场边、要和她对话时，她会停下来等人。练球时，顶球前会弹起，落地后挪到下一处球下。对阵时，她会跑动追球、起跳回顶。</p><div class="motion-cells"><figure><span aria-label="小羽待机" class="motion-sprite" role="img" style="background-image:url(wiki-media/child.webp);--sprite-row:0.00000000%;--sprite-rows:800%"></span><figcaption>待机</figcaption></figure><figure><span aria-label="小羽高兴" class="motion-sprite" role="img" style="background-image:url(wiki-media/child.webp);--sprite-row:14.28571429%;--sprite-rows:800%"></span><figcaption>高兴</figcaption></figure><figure><span aria-label="小羽疑惑" class="motion-sprite" role="img" style="background-image:url(wiki-media/child.webp);--sprite-row:28.57142857%;--sprite-rows:800%"></span><figcaption>疑惑</figcaption></figure><figure><span aria-label="小羽吃惊" class="motion-sprite" role="img" style="background-image:url(wiki-media/child.webp);--sprite-row:42.85714286%;--sprite-rows:800%"></span><figcaption>吃惊</figcaption></figure><figure><span aria-label="小羽说话" class="motion-sprite" role="img" style="background-image:url(wiki-media/child.webp);--sprite-row:57.14285714%;--sprite-rows:800%"></span><figcaption>说话</figcaption></figure><figure><span aria-label="小羽蹦步" class="motion-sprite" role="img" style="background-image:url(wiki-media/child.webp);--sprite-row:71.42857143%;--sprite-rows:800%"></span><figcaption>蹦步</figcaption></figure><figure><span aria-label="小羽起跳" class="motion-sprite" role="img" style="background-image:url(wiki-media/child.webp);--sprite-row:85.71428571%;--sprite-rows:800%"></span><figcaption>起跳</figcaption></figure><figure><span aria-label="小羽独自练球" class="motion-sprite" role="img" style="background-image:url(wiki-media/child.webp);--sprite-row:100.00000000%;--sprite-rows:800%"></span><figcaption>独自练球</figcaption></figure></div></article>
+<style>
+    .motion-atlas #motion-toggle{font:inherit;color:inherit;background:transparent;border:1px solid currentColor;border-radius:.35em;padding:.36em .8em;cursor:pointer}
+    .motion-atlas .motion-row{padding:1.1rem 0;border-bottom:1px solid #b29e7555}
+    .motion-atlas .motion-row h3{margin:0 0 .35rem}
+    .motion-atlas .motion-row p{margin:0 0 .75rem}
+    .motion-atlas .motion-cells{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:.35rem}
+    .motion-atlas .motion-cells figure{margin:0;padding:.2rem .12rem .4rem;min-width:0;background:#d6c9a631;border-radius:6px;text-align:center}
+    .motion-atlas .motion-cells figcaption{font-size:.77rem;line-height:1.5;padding:0;color:inherit}
+    .motion-atlas .motion-sprite{display:block;aspect-ratio:1;max-width:132px;margin:auto;background-repeat:no-repeat;background-size:2000% var(--sprite-rows);background-position:0% var(--sprite-row);animation:wiki-pose 2.35s steps(20,jump-none) infinite}
+    @keyframes wiki-pose{from{background-position-x:0%}to{background-position-x:100%}}
+    .motion-atlas[data-paused] .motion-sprite{animation-play-state:paused}
+    @media(prefers-reduced-motion:reduce){.motion-atlas:not([data-manual-play]) .motion-sprite{animation-play-state:paused}}
+    @media(max-width:850px){.motion-atlas .motion-cells{grid-template-columns:repeat(4,minmax(0,1fr))}}
+  </style>
+<script>
+    (() => {
+      const panel=document.getElementById('motion'),button=document.getElementById('motion-toggle');
+      function setPaused(stopped){
+        panel.toggleAttribute('data-paused',stopped);
+        button.textContent=stopped?'播放动作':'暂停动作';
+        button.setAttribute('aria-pressed',String(stopped));
+      }
+      setPaused(matchMedia('(prefers-reduced-motion: reduce)').matches);
+      button.addEventListener('click',()=>{
+        panel.toggleAttribute('data-manual-play',panel.hasAttribute('data-paused'));
+        setPaused(!panel.hasAttribute('data-paused'));
+      });
+    })();
+  </script>
+</section><section class="farm-play" id="play">
+<h2>场景与玩法</h2>
+<p>从主屋出来，顺着门前小路往右是果树，再往池边走能看见栈桥。菜园在屋前小路的另一侧。去球场要从菜园附近转进左边的树林，穿过林间小径。</p>
+<h3>果树下 · 跳起来摘</h3>
+<p>先对准一颗垂下来的糖，站在它下面，按住空格蓄力，松手起跳。碰到的糖会从枝头晃下来，跟着阿团飞进背包。摘够两颗就能回头找阿棠；抛给她的那颗在接住时从背包里扣掉。树上空出来的位置约八秒后开始重新长果。</p>
+<h3>菜园 · 收一茬，再种一茬</h3>
+<p>围栏内有三十个种植位置，中间留着一条过人的小道。阿棠提醒收菜以后，靠近田地，点「收获」，按住鼠标左键扫过成熟作物。每株会飞到阿团身边，收下一份作物和一粒同种种子。</p>
+<p>从背包选中种子，按住左键划过空畦播下；切到「浇水」，再划过刚种下的地方。每一株从浇水时单独开始计时。胡萝卜约十四秒成熟，小麦约十八秒，番茄约二十二秒。种植和浇水都用这套划过菜畦的操作，收获才会为拾忆瓶加点。</p>
+<h3>池塘 · 跟住鱼的游向</h3>
+<p>早先能看见鱼从池面上方游过。跟阿棠走到池边，等鱼沉入水中，再和栈桥上的草帽交谈。阿团会走到自己的钓位，接竿抛线。用空格或收线按钮控制浮框，按住向右，松开向左，让鱼标尽量留在框里；进度满时，鱼跃出水面，落到阿团身前。</p>
+<p>头三次按鳑鲏、白条、珍珠金鱼的顺序上钩。钓起的鱼留在背包，同种鱼影稍后会重新出现。完成这三次后，再走进栈桥钓位的黄圈，就能自由垂钓，随机钓起这三种鱼中的一种。</p>
+<h3>林间球场 · 用头把球顶过网</h3>
+<p>小羽会在网后自己练球。等阿棠带你来、和小羽约好比赛，再站进己方发球位的黄圈。用方向键或 WASD 在己方半场移动，来球时跑进落点圈，按住空格。球靠近时阿团会自己跳起，轻顶刚过网，蓄力久些，落点就更靠后。左右落点随机。</p>
+<p>小羽为了接球跑得越远，回球失误的机会越大。一分里阿团成功回球超过五次，她会越来越容易漏接。每分结束后双方回到发球位，得分方发下一球。至少七分、领先两分才能赢下这一局，第一次决出胜负就能继续剧情。</p>
+<h3>路上可以停下来做什么</h3>
+<dl class="field-activities">
+<dt>翻一翻草丛</dt><dd>树林里有七个调查点。靠近发亮的标记按 F，阿团会翻找约三秒半，随机找到胡萝卜、小麦或番茄种子中的一种，每次四至七粒。同一处四十秒后可以再找。</dd>
+<dt>摘一朵花</dt><dd>靠近可采的勿忘我或粉、白、黄野花，按 F 或点击采摘提示。阿团俯身，花朵飞到身边；原处四十秒后重新开放。勿忘我沿小路零星生长，在主屋周围尤其密。</dd>
+<dt>惊起小鸟</dt><dd>有的鸟站在篱笆桩上，有的低头啄地，也会小跳、张望。阿团贴近时，它会振翅飞向别处，留下一点记忆。</dd>
+<dt>找人说说话</dt><dd>靠近伙伴按 E。正在发生的剧情和当前任务的提醒会优先出现；闲聊随进度逐渐听全。同行时，阿棠走出一段会回头等阿团。</dd>
+<dt>翻看背包</dt><dd>同种收获叠在原格，新种类优先放进前面的空格。鼠标停在物品上可以读题记；点击种子或用 1 至 9 选中对应格，回到菜园即可播种。</dd>
+</dl>
+<p>想单独练手，可以从主菜单的「小游戏试玩」直接进入树下摘糖、摘苹果、菜园种植、草丛调查、池塘钓鱼或林间顶球。单项试玩的结果独立于主线存档。</p>
+</section><section id="dialog"><h2>主线与对白</h2><p class="stage-note">主线进度有四格：枝头、田垄、池畔、林间。达成一格时，进度条短暂出现。展开下方章节，可以顺着阿团走过的路查阅每句对白。</p><details><summary>出门 · 阿棠在等我</summary>
+<p class="stage-note">镜头先停在门前的阿团身上，随着他的目光带到树边的阿棠，再收回阿团。</p><dl class="story-lines"><dt>阿团心想</dt><dd>那边……阿棠在等我。</dd></dl><dl class="story-lines"><dt>门前路标</dt><dd>按 WASD 移动</dd><dt>糖树路标</dt><dd>按住空格蓄力，松开起跳</dd></dl><p class="stage-note">带路时阿棠会停下来等走远的阿团。他有时会这样想。</p><dl class="story-lines"><dt>阿团心想</dt><dd>阿棠停下来了。她在等我呢。</dd></dl>
+</details><details><summary>枝头 · 屋前的树</summary>
+<h4>在树旁跟阿棠打招呼</h4><p class="scene-place">果树旁小路</p><p class="stage-note">阿棠说「够不着」时，朝枝头的糖跳了一下。阿团可以在树下按住空格蓄力，松开时跳起碰糖。</p><dl class="story-lines"><dt>阿团</dt><dd>早呀，需要我搭把手吗？</dd><dt>阿棠</dt><dd>阿团！帮我摘一下这个？我跳起来也够不着。</dd><dt>阿团</dt><dd>交给我！</dd></dl>
+<h4>带两颗棒棒糖回来</h4><p class="scene-place">果树旁小路</p><p class="stage-note">说「接着！」时阿团把一颗糖抛给阿棠。糖送到她手里，背包扣去一颗，下一句才响起。树上的糖随后变成苹果，苹果屋也逐渐显出红瓦小屋的模样。草木还留着梦里的颜色。</p><details><summary>棒棒糖还没摘够时</summary>
+<dl class="story-lines"><dt>阿团</dt><dd>你在看什么呀？</dd><dt>阿棠</dt><dd>站到糖底下，往上蹦一下就够着了。</dd></dl>
+</details><dl class="story-lines"><dt>阿团</dt><dd>接着！</dd><dt>阿棠</dt><dd>哎！……这回接住了。</dd><dt>阿团</dt><dd>这回？</dd><dt>阿棠</dt><dd>你忘啦？上次你扔得不准，苹果差点滚到沟里了。</dd><dt>阿团</dt><dd>苹...果？</dd></dl><p class="stage-note">阿棠带路经过果树西侧路面、屋前岔路、菜园右篱外。</p>
+</details>
+<details><summary>田垄 · 阿棠在篱外等</summary>
+<h4>跟阿棠到菜园</h4><p class="scene-place">菜园右篱外</p><dl class="story-lines"><dt>阿棠</dt><dd>阿团，菜园里的胡萝卜记得收呀。</dd></dl>
+<h4>收自己种出的胡萝卜</h4><p class="scene-place">菜园收获处</p><p class="stage-note">第一茬胡萝卜整个露在地面。每收一根，背包里就多一根胡萝卜和一颗种子。把种子播进空畦，浇过水的种子才会长大。等橙色的肩从泥面露出来，拔出自己种的第一根胡萝卜，阿团才认出了它在土里的模样。</p><details><summary>各个种植阶段，阿棠会怎样提醒</summary>
+<dl class="story-lines"><dt>地里还有第一茬</dt><dd>把这茬胡萝卜都收了吧，种子留着，正好够种下一畦。</dd><dt>空畦待播种</dt><dd>种子留好了吧？从背包里选胡萝卜种子，把空着的地方都种上吧。</dd><dt>种满后仍有干土</dt><dd>都种好了。拿上水管，哪块土还干着，就给哪块浇点水。</dd><dt>浇水后等待成熟</dt><dd>水浇好了，让它长一会儿。等泥面上露出橙色的肩，就能拔了。</dd><dt>新一茬可以收了</dt><dd>你种的那茬长好了！去拔一根看看，我在这儿等你。</dd><dt>有空畦，胡萝卜种子用完</dt><dd>胡萝卜种子用完啦？去林子里的草丛找找，带些回来再种。</dd><dt>地已浇满，种的全是其他作物</dt><dd>菜畦都占满啦。先腾出一块，再种胡萝卜吧。</dd></dl>
+</details><dl class="story-lines"><dt>阿团</dt><dd>萝卜应该是半截在土里的才对！</dd></dl>
+<h4>回篱笆外找阿棠</h4><p class="scene-place">菜园右篱外</p><p class="stage-note">这句话由玩家回来交谈触发。阿棠在篱笆外等到这个时候，才带路去池边。</p><dl class="story-lines"><dt>阿团</dt><dd>收好了！</dd><dt>阿棠</dt><dd>走吧，草帽还在池边等咱们呢。</dd></dl><p class="stage-note">阿棠带路经过屋前岔路、池西路口、池边芦苇。</p>
+</details>
+<details><summary>池畔 · 草帽的三条鱼</summary>
+<h4>陪阿棠看池鱼</h4><p class="scene-place">池边芦苇</p><p class="stage-note">三条鱼随这段交谈结束渐渐落回池里，水下仍可看到它们游动的影子。等它们都沉入水中，再去找草帽。</p><p class="stage-note">走近池边时，还有机会先听到草帽向阿棠念叨的一句。</p><dl class="story-lines"><dt>草帽</dt><dd>鱼……在池上飞……</dd></dl><dl class="story-lines"><dt>阿团</dt><dd>好大好漂亮的鱼！</dd><dt>阿棠</dt><dd>果然还是最喜欢鱼呢</dd><dt>阿棠</dt><dd>你之前跟草帽两个钓了一天，一条都没钓到，直接跳进水里抓，还记得吗？</dd><dt>阿团</dt><dd>水里.......</dd></dl>
+<h4>在栈桥接过鱼竿</h4><p class="scene-place">码头钓位</p><p class="stage-note">剧情钓鱼按下面的顺序进行。每次去找草帽，阿团先开口，再听草帽指鱼。钓上来的鱼收进物品栏，池里还会出现鱼影。第三条到手后，「池畔」亮起。</p><dl class="story-lines"><dt>阿团</dt><dd>我来钓鱼了！</dd></dl><h5>鳑鲏</h5><dl class="story-lines"><dt>接竿前</dt><dd>那条粉鱼太罕见了，看看我们谁能把它钓上来....</dd><dt>收鱼后</dt><dd>「嗝……鱼要是在池上飞，那就好抓了。」草帽笑了。「那天酒喝多了，我还真举着抄网，等了半天。」</dd></dl><h5>白条</h5><dl class="story-lines"><dt>接竿前</dt><dd>看那道银线，一下在左，一下在右。它要拐弯了。</dd><dt>收鱼后</dt><dd>「停停停！！你钓到我的帽子了！」</dd></dl><h5>珍珠金鱼</h5><dl class="story-lines"><dt>接竿前</dt><dd>我刚刚看到那条你一直心念的金鱼出没了，在那一块！</dd><dt>收鱼后</dt><dd>「我们第一次钓鱼是十年前了，那时候....」</dd></dl>
+<h4>一起去林间球场</h4><p class="scene-place">池边芦苇</p><dl class="story-lines"><dt>阿团</dt><dd>接下来去哪儿？</dd><dt>阿棠</dt><dd>走吧，咱们去陪小羽打会儿球。</dd></dl><p class="stage-note">阿棠带路经过池西路口、屋前岔路、林间小径、球场近端、场边等候处。</p>
+</details>
+<details><summary>林间 · 和小羽顶球</summary>
+<h4>找小羽打球</h4><p class="scene-place">林间球场对面</p><p class="stage-note">小羽平时一个人顶球练习。阿棠带路来到场边、小羽等阿团开口时，她停下练习。听完邀请，走进自己半场的黄圈开赛。</p><dl class="story-lines"><dt>小羽</dt><dd>阿团，来顶球呀！我站这头，你站网那边的圈里。</dd><dt>小羽</dt><dd>看球要落在哪儿，跑进去，按住空格就能顶回来。</dd></dl>
+<h4>打完一场球</h4><p class="scene-place">场边等候处</p><p class="stage-note">比赛分出胜负，比分结算后，三个人在场边站定，才开始这段谈话。小羽先回答阿棠，随后转向阿团；阿团说出「绿色」时，草地和树叶逐渐恢复本色。</p><dl class="story-lines"><dt>阿棠 对小羽</dt><dd>小羽，作业写完了没？别整天顾着玩呀。</dd><dt>小羽 对阿棠</dt><dd>爷爷跟我说过，要多出来活动，多看看青草地，对眼睛好！</dd><dt>小羽 对阿团</dt><dd>爷爷也没意见，是吧？</dd><dt>阿团 对小羽</dt><dd>草地是……绿色的。</dd></dl><p class="stage-note">阿棠带路经过球场近端、林间小径、屋前岔路、苹果屋门前。</p><h4>回到主屋门前</h4><dl class="story-lines"><dt>阿棠</dt><dd>我去树那边歇会儿。你想去哪儿逛逛，就去吧。</dd></dl><p class="stage-note">阿棠独自回到果树旁。阿团可以继续逛农庄。</p>
+</details><details><summary>闲聊 · 从含混到听清</summary>
+<p class="stage-note">有主线或田间提醒时，伙伴会先谈手边的事。下面标出的是每句闲聊加入轮换的时刻；草帽还在引导剧情钓鱼时，交谈优先进入下一次垂钓。</p><h4>阿棠</h4><h5>我的领巾歪了吗？</h5><p class="stage-note">初次闲聊时，这组问答加入轮换。</p><dl class="story-lines"><dt>听清以前</dt><dd>……一点儿……别动。</dd><dt>摘糖抛接之后</dt><dd>有一点儿。别动，我给你扶正。</dd></dl><h5>你那颗糖吃了吗？</h5><p class="stage-note">摘糖抛接之后，这组问答加入轮换。</p><dl class="story-lines"><dt>听清以前</dt><dd>……留着……</dd><dt>收完自己种的胡萝卜之后</dt><dd>还在兜里呢。我吃糖慢，一颗能含好久。</dd></dl><h5>你在哼什么？</h5><p class="stage-note">收完自己种的胡萝卜之后，这组问答加入轮换。</p><dl class="story-lines"><dt>听清以前</dt><dd>……哼着玩儿的……</dd><dt>与阿棠说好去打球之后</dt><dd>哼着玩儿的。你接一句？我老是在这儿忘词。</dd></dl><h4>小羽</h4><h5>还玩吗？</h5><p class="stage-note">初次闲聊时，这组问答加入轮换。</p><dl class="story-lines"><dt>听清以前</dt><dd>来呀！</dd><dt>小羽邀请打球之后</dt><dd>来呀，我等你发球。</dd></dl><h4>草帽</h4><h5>今天钓到鱼了吗？</h5><p class="stage-note">初次闲聊时，这组问答加入轮换。</p><dl class="story-lines"><dt>听清以前</dt><dd>鱼……在池上飞……</dd><dt>钓到第 1 条剧情鱼后</dt><dd>嗝……鱼要是在池上飞，那就好抓了。</dd></dl><h5>今天钓到鱼了吗？</h5><p class="stage-note">剧情第一次下竿后，这组问答加入轮换。</p><dl class="story-lines"><dt>听清以前</dt><dd>......几十条鱼.....</dd><dt>钓到第 2 条剧情鱼后</dt><dd>这几十条鱼怎么一条都不咬钩！</dd></dl><h5>今天钓到鱼了吗？</h5><p class="stage-note">钓到第 2 条剧情鱼后，这组问答加入轮换。</p><dl class="story-lines"><dt>听清以前</dt><dd>......十年.....</dd><dt>钓到第 3 条剧情鱼后</dt><dd>我们第一次钓鱼是十年前了，那时候....</dd></dl>
+</details></section><section id="catalog"><h2>图鉴与收藏题记</h2>
+<p>在菜单里翻开图鉴，每张卡片在名称下标出地点。鼠标移上去或在触屏上点一下，就能读到题记。下面按游戏里的五个分页收录；部分展品会在主线推进后出现于场景。</p>
+<details><summary>角色 <small>4 项</small></summary><dl class="entries"><div><dt>阿团</dt><dd><small>主屋门前</small>领巾兜着风，枝头一颗红。</dd></div><div><dt>阿棠</dt><dd><small>果树旁的小路</small>巾角一朵蓝，回身等在花阴里。</dd></div><div><dt>草帽</dt><dd><small>池边栈桥</small>一顶晴阴遮半日，一竿斜影入清波。</dd></div><div><dt>小羽</dt><dd><small>林间球场</small>额上一双羽，追着金丸过草尖。</dd></div></dl></details><details><summary>花草树木 <small>12 项</small></summary><dl class="entries"><div><dt>勿忘我</dt><dd><small>主屋门边</small>五瓣浅蓝，围住一点鹅黄。</dd></div><div><dt>粉野花</dt><dd><small>菜园外、屋旁</small>细茎挑浅粉，花小未齐草。</dd></div><div><dt>白野花</dt><dd><small>通往栈桥的小路旁</small>一星白露，日高犹在花间。</dd></div><div><dt>黄野花</dt><dd><small>菜园后篱外</small>篱边三两点，晴日落成花。</dd></div><div><dt>芦苇</dt><dd><small>池边、桥侧</small>一穗临波，风来先点水。</dd></div><div><dt>林间阔叶树</dt><dd><small>西边树林</small>枝影交叠处，留一径野花。</dd></div><div><dt>松树</dt><dd><small>西边树林</small>一层新针绿，一层旧针青。</dd></div><div><dt>棒棒糖树</dt><dd><small>屋前岔路</small>枝头绕白丝，蜜色垂青叶。</dd></div><div><dt>苹果树</dt><dd><small>屋前岔路</small>枝低因果重，手近叶先摇。</dd></div><div><dt>淡紫草地</dt><dd><small>农庄草地</small>草尖浮淡紫，恰似暮云低。</dd></div><div><dt>灰粉草地</dt><dd><small>农庄草地</small>草上胭脂薄，一痕分小径。</dd></div><div><dt>青草地</dt><dd><small>农庄草地</small>春色齐到脚边，小径从中穿过。</dd></div></dl></details><details><summary>果蔬糖果 <small>7 项</small></summary><dl class="entries"><div><dt>粉色棒棒糖</dt><dd><small>树梢</small>枝头一圈糖纹，掌心一缕甜香。</dd></div><div><dt>杏黄棒棒糖</dt><dd><small>树梢</small>枝头一圈糖纹，掌心一缕甜香。</dd></div><div><dt>淡紫棒棒糖</dt><dd><small>树梢</small>枝头一圈糖纹，掌心一缕甜香。</dd></div><div><dt>苹果</dt><dd><small>果树</small>枝头一点果红，掌心一缕秋香。</dd></div><div><dt>小麦</dt><dd><small>菜园</small>细秆擎金穗，穗头向风低。</dd></div><div><dt>番茄</dt><dd><small>菜园</small>青枝垂小果，红透叶阴间。</dd></div><div><dt>胡萝卜</dt><dd><small>菜园</small>青叶沾水珠，泥间露橙红。</dd></div></dl></details><details><summary>鱼和鸟 <small>6 项</small></summary><dl class="entries"><div><dt>鳑鲏</dt><dd><small>池塘</small>粉鳞薄似花，轻游空网下。</dd></div><div><dt>白条</dt><dd><small>池塘</small>水下一梭银，钩上一顶草帽。</dd></div><div><dt>珍珠金鱼</dt><dd><small>池塘</small>金鳞缀白珠，双尾拨清波。</dd></div><div><dt>栗色小鸟</dt><dd><small>屋前、田边</small>栗羽沾晨露，阶前啄两声。</dd></div><div><dt>青灰小鸟</dt><dd><small>菜园、池畔</small>青羽歇篱头，半随苔色隐。</dd></div><div><dt>蓝灰小鸟</dt><dd><small>池畔、田边</small>一翅烟蓝，轻轻掠过田塍。</dd></div></dl></details><details><summary>场景器物 <small>11 项</small></summary><dl class="entries"><div><dt>苹果屋</dt><dd><small>主屋</small>红果开双窗，屋顶一枝梗。</dd></div><div><dt>红瓦小屋</dt><dd><small>主屋</small>瓦上晴光暖，花影上窗棂。</dd></div><div><dt>木栈桥</dt><dd><small>池边</small>岸到桥头尽，双竿向水斜。</dd></div><div><dt>鱼线与浮漂</dt><dd><small>栈桥钓位</small>一线垂青荇，微红忽点波。</dd></div><div><dt>浇水软管</dt><dd><small>菜园入口</small>闲时盘作环，举手一畦雨。</dd></div><div><dt>菜畦与田埂</dt><dd><small>菜园</small>两畦分一径，鞋底带新泥。</dd></div><div><dt>木篱笆</dt><dd><small>菜园四周</small>疏篱留一缺，恰与小径逢。</dd></div><div><dt>补丁草帽</dt><dd><small>草帽身上</small>帽檐缺处，两针青布补晴天。</dd></div><div><dt>小酒瓶</dt><dd><small>草帽身上</small>绿瓶系短绳，一晃酒香来。</dd></div><div><dt>花头巾</dt><dd><small>阿棠身上</small>素巾收鬓角，一朵浅蓝偏。</dd></div><div><dt>蓝围巾</dt><dd><small>阿团身上</small>一结系晴蓝，流苏先识风。</dd></div></dl></details>
+<details><summary>摘下的花 · 背包题记</summary>
+<p>同一朵花，图鉴记下它长在何处，背包里留的是摘下来时的样子。</p>
+<dl class="entries"><div><dt>勿忘我</dt><dd><small>采花入包</small>五瓣落晴蓝，一心留浅金。</dd></div><div><dt>粉野花</dt><dd><small>采花入包</small>粉瓣低垂，风过轻颤。</dd></div><div><dt>白野花</dt><dd><small>采花入包</small>素瓣围金蕊，微风拂草间。</dd></div><div><dt>黄野花</dt><dd><small>采花入包</small>一簇浅金，开在小径边。</dd></div></dl></details></section><section id="memories"><h2>拾忆瓶与回忆</h2><p>靠近小鸟让它惊飞，摘到花、糖或苹果，搜完草丛，收起作物或鱼，跟伙伴交谈，在球场成功顶回一球，会各得 1 点记忆点。光点飞进左上角的拾忆瓶，积到 100 点就满了。种菜时，作物收到手里才记点。</p><p>主线结束、阿棠回到果树旁以后，点击满瓶，选「探索回忆」。等光点聚拢才会看见题名。选「进入回忆」，云幕散开，场上换成这段往事的角色。走近他们按 E，跟上移动的人，再听下一句。</p><p>看完一段，阿团回到原来的农庄，瓶中记忆点用尽，故事收入菜单的「回忆目录」。中途离开，瓶中会留着这段往事，下次进入从开头演起；已收录的回忆可以从目录免费重温。公开试玩按顺序收录下面两段预制往事。后续的 AI 实时回忆仍待接入公开版。</p><details><summary>第一段回忆</summary>
+<h3>花树下的岔路</h3><p class="stage-note">阿团在屋前岔路，阿棠在果树西侧路面。</p><p class="stage-note">开场镜头落在阿棠身上。</p><h4>走近阿棠，按 E 交谈</h4><dl class="story-lines"><dt>阿棠</dt><dd>我头一回来。这条路走到头，是不是有棵苹果树？</dd><dt>阿团</dt><dd>正好顺路，咱俩一块儿走吧！</dd></dl><p class="stage-note">阿棠走向果树旁小路。玩家自己跟上。</p><h4>走近阿棠，按 E 交谈</h4><dl class="story-lines"><dt>阿棠</dt><dd>到啦！你还要往前走吗？</dd><dt>阿团</dt><dd>我啊？我得往回走了。</dd><dt>阿棠</dt><dd>那……明天你还顺路吗？</dd><dt>阿团</dt><dd>顺路！明天见。</dd></dl>
+</details>
+<details><summary>第二段回忆</summary>
+<h3>栈桥空着的那一边</h3><p class="stage-note">阿团在池西路口，草帽在池边芦苇。</p><p class="stage-note">开场镜头落在草帽身上。</p><h4>走近草帽，按 E 交谈</h4><dl class="story-lines"><dt>阿团</dt><dd>请问，桥上那边有人吗？</dd><dt>草帽</dt><dd>空着呢！我一个人哪用得着这么宽？来呀。</dd></dl><p class="stage-note">草帽走向码头钓位。玩家自己跟上。</p><h4>走近草帽，按 E 交谈</h4><dl class="story-lines"><dt>阿团</dt><dd>这么好的位置，真给我呀？</dd><dt>草帽</dt><dd>你用左手，我用右手。你站那边，咱俩甩竿就碰不着。</dd><dt>阿团</dt><dd>这你都留意到了！那明天我还站这儿？</dd><dt>草帽</dt><dd>来呀！你要是晚到，我把帽子搁这儿给你占着。</dd></dl>
+</details></section><section id="dsl"><h2>剧情编排 DSL</h2><p>主线用地点名、前置事件和玩家动作串起各场戏。回忆各自指定出场人物、站位和镜头，玩家要走近交谈，故事才继续。</p><details><summary>主线剧本原文</summary>
+<pre><code>player 阿团
+actor 阿棠 = scene("flower-clasp") at 果树旁小路 facing=26
+actor 小羽 = scene("child") at 林间球场对面 facing=0
+actor 草帽 = scene("angler") at 码头钓位 facing=65
+
+on new_game:
+    shot 0 player width=9 guide=off
+    shot 1.1 player width=9 guide=off
+    shot 2.8 player+阿棠 width=16 guide=on thought="那边……阿棠在等我。"
+    shot 3.8 player+阿棠 width=16 guide=on
+    shot 5.1 player width=16 guide=on
+
+tutorial move at 门前路标 radius=.8 "按 WASD 移动"
+tutorial jump at 糖树路标 radius=.95 "按住空格蓄力，松开起跳"
+
+guidance icon=star pulse=1.8 edge=arrow reach=4.5
+
+wait_thought 阿棠 "阿棠停下来了。她在等我呢。"
+
+prompt 阿棠 "你在看什么呀？"
+prompt 草帽 "今天钓到鱼了吗？"
+
+item candy 棒棒糖 "枝头一圈糖纹，掌心一缕甜香。"
+item carrot 萝卜 "青叶沾水珠，泥间露橙红。"
+item apple 苹果 "枝头一点果红，掌心一缕秋香。"
+
+on interact 阿棠 id=pickCandy at 果树旁小路:
+    say 阿团 "早呀，需要我搭把手吗？"
+    say 阿棠 face=smile "阿团！帮我摘一下这个？我跳起来也够不着。" reach candy
+    say 阿团 "交给我！"
+
+on interact 阿棠 id=apple after=pickCandy at 果树旁小路:
+    guide item candy
+    need candy 2 "站到糖底下，往上蹦一下就够着了。"
+    say 阿团 face=smile "接着！" toss candy to 阿棠
+    say 阿棠 "哎！……这回接住了。"
+    say 阿团 "这回？"
+    say 阿棠 "你忘啦？上次你扔得不准，苹果差点滚到沟里了。"
+    say 阿团 face=puzzled "苹...果？"
+    scenery 1
+    walk 果树西侧路面 屋前岔路 菜园右篱外
+
+on interact 阿棠 id=gardenIntro after=apple at 菜园右篱外:
+    say 阿棠 "阿团，菜园里的胡萝卜记得收呀。"
+
+on carrot_harvest 阿团 id=garden after=gardenIntro at 菜园收获处:
+    guide place 菜园入口
+    remind 阿棠 harvest "把这茬胡萝卜都收了吧，种子留着，正好够种下一畦。"
+    remind 阿棠 sow "种子留好了吧？从背包里选胡萝卜种子，把空着的地方都种上吧。"
+    remind 阿棠 water "都种好了。拿上水管，哪块土还干着，就给哪块浇点水。"
+    remind 阿棠 grow "水浇好了，让它长一会儿。等泥面上露出橙色的肩，就能拔了。"
+    remind 阿棠 pull "你种的那茬长好了！去拔一根看看，我在这儿等你。"
+    remind 阿棠 seeds "胡萝卜种子用完啦？去林子里的草丛找找，带些回来再种。"
+    remind 阿棠 space "菜畦都占满啦。先腾出一块，再种胡萝卜吧。"
+    say 阿团 "萝卜应该是半截在土里的才对！"
+
+on interact 阿棠 id=toPond after=garden at 菜园右篱外:
+    say 阿团 "收好了！"
+    say 阿棠 "走吧，草帽还在池边等咱们呢。"
+    walk 屋前岔路 池西路口 池边芦苇
+
+on interact 阿棠 id=pond after=toPond at 池边芦苇:
+    say 阿团 "好大好漂亮的鱼！"
+    say 阿棠 face=smile "果然还是最喜欢鱼呢"
+    say 阿棠 "你之前跟草帽两个钓了一天，一条都没钓到，直接跳进水里抓，还记得吗？"
+    say 阿团 "水里......."
+    scenery 2
+
+on interact 草帽 id=angle after=pond at 码头钓位:
+    say 阿团 "我来钓鱼了！"
+    fish
+
+on interact 阿棠 id=toCourt after=angle at 池边芦苇:
+    say 阿团 "接下来去哪儿？"
+    say 阿棠 "走吧，咱们去陪小羽打会儿球。"
+    walk 池西路口 屋前岔路 林间小径 球场近端 场边等候处
+
+on interact 小羽 id=courtInvite after=toCourt at 林间球场对面:
+    say 小羽 face=smile "阿团，来顶球呀！我站这头，你站网那边的圈里。"
+    say 小羽 "看球要落在哪儿，跑进去，按住空格就能顶回来。"
+
+on match_end 阿棠 id=courtMemory after=courtInvite at 场边等候处:
+    say 阿棠 "小羽，作业写完了没？别整天顾着玩呀。" to 小羽
+    say 小羽 face=smile "爷爷跟我说过，要多出来活动，多看看青草地，对眼睛好！" to 阿棠
+    say 小羽 "爷爷也没意见，是吧？" to 阿团 observers=listener
+    say 阿团 face=puzzled "草地是……绿色的。" to 小羽
+    scenery 3
+    walk 球场近端 林间小径 屋前岔路 苹果屋门前
+    on_arrival "我去树那边歇会儿。你想去哪儿逛逛，就去吧。"
+    return_home 屋前岔路 果树西侧路面
+
+chat 小羽 after=courtInvite ask="还玩吗？" "来呀！" "来呀，我等你发球。"
+
+overhear pond 草帽 阿棠 "鱼……在池上飞……"
+
+chat 阿棠 after=apple ask="我的领巾歪了吗？" "……一点儿……别动。" "有一点儿。别动，我给你扶正。"
+chat 阿棠 after=garden pool=after.apple ask="你那颗糖吃了吗？" "……留着……" "还在兜里呢。我吃糖慢，一颗能含好久。"
+chat 阿棠 after=toCourt pool=after.garden ask="你在哼什么？" "……哼着玩儿的……" "哼着玩儿的。你接一句？我老是在这儿忘词。"
+chat 草帽 catch=1 "鱼……在池上飞……" "嗝……鱼要是在池上飞，那就好抓了。"
+chat 草帽 catch=2 pool=started "......几十条鱼....." "这几十条鱼怎么一条都不咬钩！"
+chat 草帽 catch=3 pool=catch2 "......十年....." "我们第一次钓鱼是十年前了，那时候...."
+release 1 "「嗝……鱼要是在池上飞，那就好抓了。」草帽笑了。「那天酒喝多了，我还真举着抄网，等了半天。」"
+release 2 "「停停停！！你钓到我的帽子了！」"
+
+specimen 鳑鲏 "那条粉鱼太罕见了，看看我们谁能把它钓上来...." "粉鳞薄似花，轻游空网下。"
+specimen 白条 "看那道银线，一下在左，一下在右。它要拐弯了。" "水下一梭银，钩上一顶草帽。"
+specimen 珍珠金鱼 "我刚刚看到那条你一直心念的金鱼出没了，在那一块！" "金鳞缀白珠，双尾拨清波。"</code></pre>
+</details><details><summary>第一段回忆的剧本</summary>
+<pre><code>memory 花树下的岔路
+cast 阿团 屋前岔路
+cast 阿棠 果树西侧路面
+shot 阿棠
+meet 阿棠
+say 阿棠 puzzled 我头一回来。这条路走到头，是不是有棵苹果树？
+say 阿团 smile 正好顺路，咱俩一块儿走吧！
+walk 阿棠 果树旁小路
+meet 阿棠
+say 阿棠 smile 到啦！你还要往前走吗？
+say 阿团 puzzled 我啊？我得往回走了。
+say 阿棠 smile 那……明天你还顺路吗？
+say 阿团 smile 顺路！明天见。
+end</code></pre>
+</details>
+<details><summary>第二段回忆的剧本</summary>
+<pre><code>memory 栈桥空着的那一边
+cast 阿团 池西路口
+cast 草帽 池边芦苇
+shot 草帽
+meet 草帽
+say 阿团 talk 请问，桥上那边有人吗？
+say 草帽 smile 空着呢！我一个人哪用得着这么宽？来呀。
+walk 草帽 码头钓位
+meet 草帽
+say 阿团 puzzled 这么好的位置，真给我呀？
+say 草帽 smile 你用左手，我用右手。你站那边，咱俩甩竿就碰不着。
+say 阿团 surprised 这你都留意到了！那明天我还站这儿？
+say 草帽 smile 来呀！你要是晚到，我把帽子搁这儿给你占着。
+end</code></pre>
+</details></section><section aria-labelledby="real-title" id="real">
+<h2 id="real-title">现实世界与人物关系</h2>
+<details class="spoiler">
+<summary>展开幕后设定<span>（含身份与主线剧透）</span></summary>
+<p>在现实里，阿团是一位上了年纪的爷爷。到了晚年，他有时认不清熟人，也会把很久以前听过的一句玩笑当成眼前的事实。阿棠是陪他过了许多年的老伴，草帽是老钓友，小羽是孙女。同一件小事，他们常常各自记得不同的那一半。</p>
+<p>他们熟悉的河谷小镇有一条老街。镇文化站、裁缝铺和客运站相隔不远。阿团和阿棠家门口有苹果树，篱笆围着几垄菜，再往外走是池塘。农庄借用了他们下班、散步和赴约时反复走过的地方。下列小传也收着游戏尚未演出的生活细节。</p>
+<h3>阿团 · 镇文化站的放映员</h3>
+<p>阿团是家里从小叫惯的小名。头一次看露天电影，他来晚了，钻到幕布背面，看了一晚上反字。第二天拿碗挡着煤油灯，给妹妹演银幕上那只狼，投出来却像一只鸭子。后来妹妹还专门点这出戏。</p>
+<p>年轻时他个子略高，夏天爱穿洗薄了的蓝衬衫。进文化站先跟师傅扛箱子、架幕布，后来才独自下乡放片。他喜欢修东西，也舍不得扔。修到满饭桌都是零件，阿棠就把他的饭碗端到工具箱上。</p>
+<p>阿团爱把好东西分给旁边的人。一回幕布被钉子扯破，他抱到阿棠的铺子里，一边帮她把布拉平，一边把电影结尾讲完了。后来约她去看，她先叫他保证，开场以后少说两句。农庄里也能看出他的性急，摘到糖，喊声“接着！”就已经扔过去了。</p>
+<h3>阿棠 · 老街上的裁缝，爱听戏的人</h3>
+<p>阿棠小时候在母亲的裁缝桌底下捡碎布，给泥人换戏服。她记得台上的水袖勾过哪只桌角，却可能要找人问戏里那封信是谁写的。出师后她在老街替人改衣，尤其喜欢给裙子缝一个放得下钥匙的内袋。</p>
+<p>她把头发剪到耳下，干活时用奶油色头巾束起来，一侧别着蓝花扣。改好衣服总要请客人走两步，看看衣摆才肯剪线。年前生意忙，她给自己的外套连着两年才缝好一只袖子。第三年她在门上写下“廿八收工”，穿上做好的外套，去县里听了一回整本戏。</p>
+<p>阿棠吃糖慢，和阿团第一次一道看电影时，一小包糖吃到散场还剩大半。如今阿团问起那颗糖，她也会说还在兜里。她走得快，走出一段又会回头等他。阿团叫不出“苹果”时，她只同他说起上次那颗差点滚进沟里的果子。</p>
+<h3>草帽 · 跑山线的客车司机，阿团的老钓友</h3>
+<p>草帽小时候去镇里读书要赶早班车。他晕车，司机让他坐前排，看着远处的山路。后来他从卖票、搬行李做起，考到驾照，自己也开上这条山线。头回坐山路的孩子，总能坐到他旁边。</p>
+<p>文化站在河对岸放片缺一截电线，他曾替阿团借来。两个人熟起来，也因为收幕布的人和跑末班车的人常在差不多的时候收工，一起去吃同一家面。草帽说起钓鱼爱夸张；真要答应人一件事，倒会摘下帽子，慢慢说。</p>
+<p>退休后他最舍得在池边花时间。两个人并排下竿，他还记得阿团用左手，特意留出甩竿的位置。帽檐被钩破过，阿团借来阿棠的针线，用灰蓝布压住裂口。如今的草帽上还看得见补丁。游戏里池面上的飞鱼，也藏着草帽喝多后举着抄网等鱼的那句醉话。</p>
+<h3>小羽 · 家里爱顶球的孩子</h3>
+<p>小羽还在上学。想找她，去林间球场就行。一个人也能玩，她把球顶起，自己追过去接。有了伙伴，她就隔着网喊对方去站位。她额上的两枚浅色羽饰、比大人小一圈的粉色身形，都能让人一眼把她认出来。</p>
+<p>爷爷劝过她多出来活动、多看看青草地。阿棠惦记她的作业，小羽就拿这句话来求一个同盟，转向刚陪她打完一局的阿团，问爷爷有没有意见。三个角色说的是同一场球，站在场边的人却各有所思。</p>
+<h3>玩家能拼出什么</h3>
+<p>小羽会当面喊阿团“爷爷”。阿棠与阿团的关系则藏在扶领巾、记得对方的口味、先走几步又回头等这些小事里。试玩走到两人回家门口，阿棠去树边歇息，阿团可以接着四处逛。</p>
+<p>拾忆瓶里的两段往事各自收得很小。一段是阿棠头一回问路，发现阿团送到树边还要往回走，便问他明天还顺不顺路。另一段是阿团在栈桥上问空位，发现草帽连他用哪只手甩竿都留意到了。两段讲的都是当初怎样靠近一个人。阿团逐渐忘事的具体病因，以及他和家人最后会怎样，仍留在故事之外。</p>
+</details>
+</section>
+
+
+
+
+
+<a class="backtop" href="#top">回到目录 ↑</a></article></div></main>
+<script>
+const sectionLinks = [...document.querySelectorAll('.contents a')];
+const headings = sectionLinks.map(a => document.getElementById(a.hash.slice(1)));
+function markSection() {
+  const current = headings.filter(s => s.getBoundingClientRect().top < innerHeight * .3).at(-1) || headings[0];
+  for (const link of sectionLinks) {
+    if (link.hash === '#' + current.id) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  }
+}
+addEventListener('scroll', markSection, {passive:true}); markSection();
+</script></body></html>
