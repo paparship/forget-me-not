@@ -52,6 +52,16 @@ video { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; di
 .section-heading { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; }
 .section-heading h2 { margin: 0; font-size: clamp(24px, 3vw, 34px); letter-spacing: .12em; font-weight: 600; }
 .section-heading span { flex: 1; height: 1px; background: #c7c6a9; }
+.walkthrough { width: min(1120px, calc(100% - 80px)); margin: 0 auto; border-top: 1px solid #c6c4a5; padding: clamp(30px, 4vw, 52px) 0; }
+.walkthrough .screen { width: 100%; }
+.walkthrough .watch { left: 50%; top: 50%; }
+.walkthrough .section-heading small { color: #566054; font: 14px "Microsoft YaHei", sans-serif; }
+.walkthrough-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 20px; margin-top: 16px; }
+.walkthrough-footer p, .chapter-picker, .playback-error { margin: 0; color: #525d51; font: 15px/1.7 "Microsoft YaHei", "PingFang SC", sans-serif; }
+.chapter-picker { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.chapter-picker[hidden] { display: none; }
+.chapter-picker select { max-width: 100%; padding: 6px 9px; font: inherit; color: var(--pine); border: 1px solid #bcb592; border-radius: 3px; background: var(--paper); }
+.playback-error { margin-top: 8px; }
 .plates { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2.2vw, 28px); }
 figure { margin: 0; padding: 7px 7px 0; background: #fbf7e9; border: 1px solid #d6cfb8; box-shadow: 0 4px 8px #4943260c; }
 figure img { width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; display: block; }
@@ -61,6 +71,7 @@ figcaption { padding: 13px 5px 14px; text-align: center; letter-spacing: .12em; 
   .nav-wrap, .lede, .album-inner { width: calc(100% - 36px); }
   .nav-wrap { min-height: 65px; }
   .screen { width: 100%; border-radius: 0; }
+  .walkthrough { width: calc(100% - 36px); }
   .cinema { padding-top: 0; background: var(--paper); }
   .watch { font-size: 13px; gap: 7px; min-height: 40px; padding: 8px 13px; }
   .lede { gap: 18px; align-items: flex-start; }
@@ -93,4 +104,8 @@ figcaption { padding: 13px 5px 14px; text-align: center; letter-spacing: .12em; 
   .masthead nav { flex-basis: 100%; justify-content: space-between; gap: 6px; }
   .masthead .nav-link { display: inline-block; font-size: 14px; }
   .masthead .launch { padding: 7px 11px; }
+}
+@media (max-width: 410px) {
+  .masthead .nav-link, .masthead .launch { font-size: 13px; letter-spacing: 0; }
+  .masthead .launch { gap: 5px; padding: 6px; }
 }

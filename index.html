@@ -4,12 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#213c36">
-  <meta name="description" content="勿忘我，一场关于记忆的农庄冒险。观看游戏预告，在浏览器里走进阿团的农庄。">
+  <meta name="description" content="观看《勿忘我》高清预告与完整实机体验，或在浏览器里走进阿团的农庄。">
   <meta property="og:title" content="勿忘我 · 一场关于记忆的农庄冒险">
   <meta property="og:description" content="我的农庄有点不对劲。观看游戏预告，或走进农庄亲自看一看。">
   <title>勿忘我 · 一场关于记忆的农庄冒险</title>
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="./showcase.css">
+  <link rel="stylesheet" href="./showcase.css?v=video-hq">
+  <script src="./media/player/hls-light-1.7.4.min.js" defer></script>
+  <script src="./showcase-video.js" defer></script>
 </head>
 <body>
   <header class="masthead">
@@ -20,6 +22,7 @@
       </a>
       <nav aria-label="页面导航">
         <a class="nav-link" href="#trailer">游戏预告</a>
+        <a class="nav-link" href="#walkthrough">实机体验</a>
         <a class="nav-link" href="#album">农庄相册</a>
         <a class="nav-link" href="./settings/">游戏设定</a>
         <a class="launch" href="./play/">开始试玩 <span aria-hidden="true">→</span></a>
@@ -30,9 +33,9 @@
     <section id="trailer" class="cinema" aria-labelledby="game-name">
       <h1 id="game-name" class="sr-only">勿忘我</h1>
       <div class="screen">
-        <video id="film" controls playsinline preload="none" poster="./media/poster.webp" aria-label="勿忘我游戏预告片">
-          <source src="./media/trailer.mp4?v=a18f76293548" type="video/mp4">
-          <a href="./media/trailer.mp4?v=a18f76293548">打开预告片</a>
+        <video id="film" controls playsinline preload="none" poster="./media/poster.webp?v=891d1c6c6368" aria-label="勿忘我游戏预告片">
+          <source src="./media/trailer.mp4?v=891d1c6c6368" type="video/mp4">
+          <a href="./media/trailer.mp4?v=891d1c6c6368">打开预告片</a>
         </video>
         <button class="watch" type="button" hidden aria-label="播放游戏预告">
           <span class="play-shape" aria-hidden="true"></span>
@@ -49,6 +52,23 @@
           <small>建议使用电脑键盘与鼠标</small>
         </div>
       </div>
+    </section>
+    <section id="walkthrough" class="walkthrough" aria-labelledby="walkthrough-title">
+      <div class="section-heading"><h2 id="walkthrough-title">实机体验</h2><span aria-hidden="true"></span><small>1440p · 12 分 30 秒</small></div>
+      <div class="screen">
+        <video id="gameplay" controls playsinline preload="none" poster="./media/walkthrough-poster.webp" aria-label="勿忘我完整实机试玩">
+          <source src="./media/walkthrough-hq/index.m3u8" type="application/vnd.apple.mpegurl">
+          <track kind="chapters" srclang="zh" label="试玩章节" src="./media/walkthrough-hq/chapters.vtt">
+        </video>
+        <button class="watch" type="button" hidden aria-label="播放完整试玩">
+          <span class="play-shape" aria-hidden="true"></span><span>播放完整试玩</span>
+        </button>
+      </div>
+      <div class="walkthrough-footer">
+        <p>从家门口出发，走完主线，再去林间探索、拾起两段往事。</p>
+        <label class="chapter-picker" hidden>跳到章节 <select aria-label="选择试玩章节"></select></label>
+      </div>
+      <p class="playback-error" role="status" hidden></p>
     </section>
     <section id="album" class="album" aria-labelledby="album-name">
       <div class="album-inner">
@@ -71,23 +91,5 @@
       </div>
     </section>
   </main>
-  <script>
-    const film = document.querySelector('#film');
-    const watch = document.querySelector('.watch');
-    watch.hidden = false;
-    film.controls = false;
-    watch.addEventListener('click', () => {
-      film.controls = true;
-      film.play().catch(() => { film.controls = true; });
-    });
-    film.addEventListener('play', () => {
-      watch.hidden = true;
-      film.focus({ preventScroll: true });
-    });
-    film.addEventListener('ended', () => {
-      film.controls = false;
-      watch.hidden = false;
-    });
-  </script>
 </body>
 </html>
